@@ -1,0 +1,164 @@
+{
+  "version": "1.0",
+  "date": "2026-05-15",
+  
+  "company": {
+    "name": "晟矽微电子",
+    "code": "sinomcu"
+  },
+  
+  "operators": [
+    {
+      "id": "qipai",
+      "name": "气派科技",
+      "type": "website",
+      "website": {
+        "url": "http://wip.chippacking.com:8680",
+        "username": "GD1833",
+        "password": "123456.Com",
+        "wipPath": "/在线WIP表",
+        "enabled": true
+      },
+      "color": "#FFEB3B",
+      "fontColor": "#000000"
+    },
+    {
+      "id": "huatian_nanjing",
+      "name": "西安华天",
+      "type": "website",
+      "website": {
+        "url": "http://report.htkjxa.com:8086",
+        "username": "JS299",
+        "password": "Htkj.2023",
+        "wipPath": "/WIP报表",
+        "enabled": true
+      },
+      "color": "#FF9800",
+      "fontColor": "#FFFFFF"
+    },
+    {
+      "id": "huatian_tianshui",
+      "name": "天水华天",
+      "type": "website",
+      "website": {
+        "url": "https://huatian-tech.com:8444/login",
+        "username": "JS299",
+        "password": "JS299.com",
+        "wipPath": "/WIP报表",
+        "enabled": true
+      },
+      "color": "#4CAF50",
+      "fontColor": "#FFFFFF"
+    },
+    {
+      "id": "shengxi_jiangyin",
+      "name": "晟矽江阴",
+      "type": "website",
+      "website": {
+        "url": "http://oa.zy-elec.com:7888",
+        "username": "sinomcu",
+        "password": "12345678",
+        "wipPath": "/PlanWip0067",
+        "enabled": true
+      },
+      "color": "#03A9F4",
+      "fontColor": "#FFFFFF"
+    },
+    {
+      "id": "jc196",
+      "name": "JC196巨成",
+      "type": "email",
+      "email": {
+        "sender": "@juchengic.com",
+        "keywords": ["JC196", "在制品", "封装产品进展"],
+        "enabled": true
+      },
+      "color": "#9C27B0",
+      "fontColor": "#FFFFFF"
+    },
+    {
+      "id": "xinfang",
+      "name": "江苏芯丰",
+      "type": "email",
+      "email": {
+        "sender": "@icpkg.com",
+        "keywords": ["芯丰", "132", "102", "wip"],
+        "enabled": true
+      },
+      "color": "#E4DFEC",
+      "fontColor": "#FFFFFF"
+    },
+    {
+      "id": "lipuxin",
+      "name": "利普芯微",
+      "type": "email",
+      "email": {
+        "sender": "@lipuxw.com",
+        "keywords": ["2031", "22003", "WIP报表"],
+        "enabled": true
+      },
+      "color": "#E91E63",
+      "fontColor": "#FFFFFF"
+    },
+    {
+      "id": "fumanwei",
+      "name": "富满微",
+      "type": "email",
+      "email": {
+        "sender": "K3C管理员",
+        "keywords": ["新工序在制WIP", "代工-晟矽微"],
+        "enabled": true
+      },
+      "color": "#795548",
+      "fontColor": "#FFFFFF"
+    }
+  ],
+  
+  "emailConfig": {
+    "source": {
+      "server": "mail.sinomcu.com",
+      "url": "https://mail.sinomcu.com/owa",
+      "username": "yyzx",
+      "password": "123456.com",
+      "protocol": "owa"
+    },
+    "forward": {
+      "smtpServer": "smtp.sinomcu.com",
+      "smtpPort": 587,
+      "username": "yyzx@sinomcu.com",
+      "password": "123456.com",
+      "recipients": [
+        "lj@sinomcu.com",
+        "celinepan@sinomcu.com",
+        "mgf@sinomcu.com"
+      ],
+      "subjectTemplate": "运营WIP汇总报表_{date}",
+      "bodyTemplate": "各位：\n\n附件为{date}运营WIP汇总报表，请查收。\n\n数据来源：网站下载 + 邮箱附件\n供应商数量：{supplierCount}家\n总订单数：{totalRows}条\n\n如有疑问请联系运营中心。\n\nBest Regards\n运营自动化系统"
+    }
+  },
+  
+  "output": {
+    "dir": "~/Desktop/输出文件夹",
+    "filenameTemplate": "运营WIP汇总_{date}_{time}.xlsx",
+    "columns": [
+      "供应商", "客户代码", "客户名称", "客户订单号", "封装形式",
+      "产品型号", "芯片型号", "晶圆批次", "订单数量", "投产日期",
+      "粘片", "焊线", "焊线2", "焊线批检", "塑封", "电镀",
+      "切筋", "委外切筋", "包装", "测试", "测试编带", "包装入库",
+      "在线合计", "入库良品", "入库不良品", "出库良品", "出库不良品",
+      "库存", "状态"
+    ]
+  },
+  
+  "schedule": {
+    "cron": "0 9 * * *",
+    "timezone": "Asia/Shanghai",
+    "enabled": true
+  },
+  
+  "logging": {
+    "dir": "~/.openclaw/workspace/skills/wip-auto-consolidator/logs",
+    "level": "info",
+    "maxAgeDays": 30
+  }
+}
